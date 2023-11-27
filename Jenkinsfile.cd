@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the source code from a Git repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url:'https://github.com/reshitha14/codefile.git',credentailsID:'git']]])
-            }
-        }
+        
         stage('Deply') {
             steps {
                 echo 'Deploying...'
