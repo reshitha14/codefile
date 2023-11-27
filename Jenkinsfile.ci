@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from a Git repository
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url:'https://github.com/reshitha14/codefile' ]]])
+            }
+        }
+        stage('unittest') {
+            steps {
+                // Your build steps go here
+                echo 'Uittesting...'
+            }
+        }
+        stage('Build') {
+            steps {
+                // Your build steps go here
+                echo 'Building...'
+            }
+        }
+
+        stage('push') {
+            steps {
+                // Your test steps go here
+                echo 'pushing...'
+            }
+        }
+    }
+}

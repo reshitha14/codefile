@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from a Git repository
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url:'https://github.com/reshitha14/codefile' ]]])
+            }
+        }
+        stage('Deply') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+        stage('Functionaltest') {
+            steps {
+                echo 'Functional testing...'
+            }
+        }
+
+        stage('DAST') {
+            steps {
+                echo 'DAST Scanning...'
+            }
+        }
+    }
+}
