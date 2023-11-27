@@ -6,7 +6,7 @@ pipeline {
             stage('Checkout') {
             steps {
                 // Checkout the source code from a Git repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url:'https://github.com/reshitha14/codefile.git',credentailsID:'git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url:'https://github.com/reshitha14/codefile/blob/main/index.py.git',credentailsID:'git']]])
             }
         }
         stage('unittest') {
